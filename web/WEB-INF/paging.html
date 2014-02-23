@@ -1,0 +1,50 @@
+<html>
+<body>
+
+
+
+<link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
+<link rel="stylesheet" type="text/css" href="codebase/skins/dhtmlxgrid_dhx_skyblue.css">
+<script  src="codebase/dhtmlxcommon.js"></script>
+<script  src="codebase/dhtmlxgrid.js"></script>        
+<!--script  src="codebase/ext/dhtmlxgrid_pgn.js"></script-->    
+<script  src="codebase/dhtmlxgridcell.js"></script>    
+ 
+<script>
+
+var mygrid;
+function doOnLoad() {
+    mygrid = new dhtmlXGridObject('gridbox');
+    mygrid.setImagePath("codebase/imgs/");
+    mygrid.setHeader("Column A, Column B");
+    mygrid.setInitWidths("300,*");
+    mygrid.setColAlign("right,left");
+    mygrid.setColTypes("ro,ed");
+    mygrid.setColSorting("str,str");
+    mygrid.enablePaging(true, 10, 3, "pagingArea", true, "recinfoArea");
+    mygrid.init();
+    mygrid.setSkin("dhx_skyblue");
+    mygrid.loadXML("http://localhost:8080/web/servletDHX");
+}
+
+</script>
+ 
+ 
+<table width="500">
+    <tr>
+        <td id="recinfoArea"></td>
+    </tr>
+    <tr>
+        <td>
+            <div id="gridbox" style="width:100%; height:150px; background-color:white;overflow:hidden"></div>
+        </td>
+    </tr>
+    <tr>
+        <td id="pagingArea"></td>
+    </tr>
+</table>
+
+
+
+</body>
+</html>

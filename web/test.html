@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <link rel="STYLESHEET" type="text/css" href="codebase/dhtmlxgrid.css">
+<link rel="stylesheet" type="text/css" href="codebase/skins/dhtmlxgrid_dhx_skyblue.css">
+<script  src="codebase/dhtmlxcommon.js"></script>
+<script  src="codebase/dhtmlxgrid.js"></script>    
+<script  src="codebase/dhtmlxgridcell.js"></script>
+<style>
+.even{
+    background-color:#E6E6FA;
+}
+.uneven{
+    background-color:#F0F8FF;
+}
+</style>
+ 
+<div id="gridbox" style="width:600px; height:270px; background-color:white;"></div>
+<br>
+<div><a href="#" onClick="mygrid.clearAll(); mygrid.loadXML('../common/first.xml');">Reload grid - classic way</a></div>
+<div><a href="#" onClick="mygrid.loadXML('../common/second.xml');">Reload grid - clear grid from XML</a></div>
+<div><a href="#" onClick="mygrid.updateFromXML('../common/third.xml');">Reload grid - refresh data only </a></div>
+<br>
+<script>
+mygrid = new dhtmlXGridObject('gridbox');
+mygrid.setImagePath("../../codebase/imgs/");
+mygrid.setHeader("Sales,edtxt,ed,Price,In Store,Shipping,Bestseller,Date of Publication");
+mygrid.setInitWidths("50,150,100,80,80,80,80,200");
+mygrid.setColAlign("right,left,left,right,center,left,center,center");
+mygrid.setColTypes("dyn,edtxt,ed,price,ch,co,ra,ro");
+mygrid.getCombo(5).put(2, 2);
+mygrid.setColSorting("int,str,str,int,str,str,str,date");
+mygrid.init();
+mygrid.setSkin("dhx_skyblue");
+mygrid.enableAlterCss("even", "uneven");
+mygrid.loadXML("http://localhost:8080/web/servletDHX");
+</script>
+    </body>
+</html>
